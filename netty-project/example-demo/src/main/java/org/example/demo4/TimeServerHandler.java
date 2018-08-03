@@ -9,6 +9,7 @@ public class TimeServerHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelActive(final ChannelHandlerContext ctx) throws Exception { // 当建立连接并准备生成通信量时，会调用channelActive()方法
+		System.out.println("TimeServerHandler.channelActive");
 		ChannelFuture f = ctx.writeAndFlush(new UnixTime());
 		f.addListener(ChannelFutureListener.CLOSE);
 	}
